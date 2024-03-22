@@ -84,12 +84,13 @@
             // timerCOM
             // 
             this.timerCOM.Interval = 1000;
+            this.timerCOM.Tick += new System.EventHandler(this.timerCOM_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 358);
+            this.ClientSize = new System.Drawing.Size(513, 358);
             this.Controls.Add(this.textBoxReceber);
             this.Controls.Add(this.textBoxEnviar);
             this.Controls.Add(this.btEnviar);

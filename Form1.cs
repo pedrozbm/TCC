@@ -16,6 +16,7 @@ namespace TCC
         public Form1()
         {
             InitializeComponent();
+            timerCOM.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,7 +26,35 @@ namespace TCC
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (serialPort1.IsOpen == false)
+            {
+                try
+                {
+                    serialPort1.PortName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+                    serialPort1.Open();
+                }
+                catch
+                {
 
+                    return;
+                }
+                if (serialPort1.IsOpen)
+                {
+                    btConectar.Text = "Desconectar";
+                    comboBox1.Enabled = false;
+                }
+            }
+            else
+            {
+
+                try
+                {
+                    serialPort1.Close();
+                    comboBox1.Enabled = true;
+                    btConectar.Text = "Conectar";
+                }
+                catch { return; }
+            }
         }
         private void atualizalistaCOMs()
         {
@@ -33,11 +62,12 @@ namespace TCC
             bool quantDiferente = false;
             i = 0;
 
-            if(comboBox1.Items.Count == SerialPort.GetPortNames().Length)
+            if (comboBox1.Items.Count == SerialPort.GetPortNames().Length)
             {
-                  foreach(string s in SerialPort.GetPortNames())
+                foreach (string s in SerialPort.GetPortNames())
                 {
-                    if (comboBox1.Items[i++].Equals(s) == false) {
+                    if (comboBox1.Items[i++].Equals(s) == false)
+                    {
 
                         quantDiferente = true;
                     }
@@ -48,18 +78,29 @@ namespace TCC
                 quantDiferente = true;
             }
 
-            if( quantDiferente == false) {
+            if (quantDiferente == false)
+            {
                 return;
             }
             comboBox1.Items.Clear();
 
-            foreach(string s in SerialPort.GetPortNames() )
+            foreach (string s in SerialPort.GetPortNames())
             {
                 comboBox1.Items.Add(s);
             }
             comboBox1.SelectedItem = 0;
         }
 
+        private void timerCOM_Tick(object sender, EventArgs e)
+        {
+            atualizalistaCOMs();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(serialPort1.IsOpen == true)
+                serialPort1.Close();
+        }
 
     }
 }
