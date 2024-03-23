@@ -64,6 +64,7 @@
             this.btEnviar.TabIndex = 2;
             this.btEnviar.Text = "Enviar";
             this.btEnviar.UseVisualStyleBackColor = true;
+            this.btEnviar.Click += new System.EventHandler(this.btEnviar_Click);
             // 
             // textBoxEnviar
             // 

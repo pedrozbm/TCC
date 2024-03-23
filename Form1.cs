@@ -13,6 +13,7 @@ namespace TCC
 {
     public partial class Form1 : Form
     {
+        string RxString;
         public Form1()
         {
             InitializeComponent();
@@ -102,5 +103,22 @@ namespace TCC
                 serialPort1.Close();
         }
 
+        private void btEnviar_Click(object sender, EventArgs e)
+        {
+            if(serialPort1.IsOpen == true )
+            {
+                serialPort1.Write(textBoxEnviar.Text);
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            RxString = serialPort1.ReadExisting();
+            this.Invoke(new EventHandler(trataDadoRecebido));
+        }
+        private void trataDadoRecebido(object sender, EventArgs e)
+        {
+            textBoxReceber.AppendText(RxString);
+        }
     }
 }
