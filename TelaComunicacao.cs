@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace TCC
 {
-    public partial class Form1 : Form
+    public partial class TelaComunicacao : Form
     {
         string RxString;
-        public Form1()
+        public TelaComunicacao()
         {
             InitializeComponent();
             timerCOM.Enabled = true;
