@@ -62,6 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animais.Designer.cs">
+      <DependentUpon>Animais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fazendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fazendas.Designer.cs">
+      <DependentUpon>Fazendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Animais.resx">
+      <DependentUpon>Animais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fazendas.resx">
+      <DependentUpon>Fazendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuInicial.resx">
+      <DependentUpon>MenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaComunicacao.resx">
       <DependentUpon>TelaComunicacao.cs</DependentUpon>
     </EmbeddedResource>
