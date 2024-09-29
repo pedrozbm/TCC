@@ -41,8 +41,8 @@ namespace TCC
             // 
             // btConectar
             // 
-            this.btConectar.Location = new System.Drawing.Point(92, 78);
-            this.btConectar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btConectar.Location = new System.Drawing.Point(92, 33);
+            this.btConectar.Margin = new System.Windows.Forms.Padding(4);
             this.btConectar.Name = "btConectar";
             this.btConectar.Size = new System.Drawing.Size(100, 28);
             this.btConectar.TabIndex = 0;
@@ -53,16 +53,16 @@ namespace TCC
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(220, 80);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(220, 37);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // btEnviar
             // 
-            this.btEnviar.Location = new System.Drawing.Point(92, 144);
-            this.btEnviar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btEnviar.Location = new System.Drawing.Point(92, 92);
+            this.btEnviar.Margin = new System.Windows.Forms.Padding(4);
             this.btEnviar.Name = "btEnviar";
             this.btEnviar.Size = new System.Drawing.Size(100, 28);
             this.btEnviar.TabIndex = 2;
@@ -72,20 +72,20 @@ namespace TCC
             // 
             // textBoxEnviar
             // 
-            this.textBoxEnviar.Location = new System.Drawing.Point(220, 144);
-            this.textBoxEnviar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEnviar.Location = new System.Drawing.Point(220, 98);
+            this.textBoxEnviar.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnviar.Name = "textBoxEnviar";
             this.textBoxEnviar.Size = new System.Drawing.Size(345, 22);
             this.textBoxEnviar.TabIndex = 3;
             // 
             // textBoxReceber
             // 
-            this.textBoxReceber.Location = new System.Drawing.Point(92, 220);
-            this.textBoxReceber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxReceber.Location = new System.Drawing.Point(92, 152);
+            this.textBoxReceber.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxReceber.Multiline = true;
             this.textBoxReceber.Name = "textBoxReceber";
             this.textBoxReceber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxReceber.Size = new System.Drawing.Size(473, 174);
+            this.textBoxReceber.Size = new System.Drawing.Size(478, 174);
             this.textBoxReceber.TabIndex = 4;
             // 
             // timerCOM
@@ -97,13 +97,14 @@ namespace TCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 441);
+            this.ClientSize = new System.Drawing.Size(764, 365);
             this.Controls.Add(this.textBoxReceber);
             this.Controls.Add(this.textBoxEnviar);
             this.Controls.Add(this.btEnviar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btConectar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TelaComunicacao";
             this.Text = "Teste de comunicação ";
             this.Load += new System.EventHandler(this.Form1_Load);

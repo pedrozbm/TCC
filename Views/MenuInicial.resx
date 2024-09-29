@@ -150,6 +150,9 @@
   <data name="&gt;&gt;btnAnimais.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="btnConfiguracoes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="btnConfiguracoes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -309,7 +312,7 @@
   <data name="btnSlide.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>
@@ -317,7 +320,7 @@
   <data name="btnSlide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>

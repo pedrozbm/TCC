@@ -62,44 +62,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animais.cs">
+    <Compile Include="Views\Animais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Animais.Designer.cs">
+    <Compile Include="Views\Animais.Designer.cs">
       <DependentUpon>Animais.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fazendas.cs">
+    <Compile Include="Views\Fazendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fazendas.Designer.cs">
+    <Compile Include="Views\Fazendas.Designer.cs">
       <DependentUpon>Fazendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuInicial.cs">
+    <Compile Include="Views\Semens.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuInicial.Designer.cs">
+    <Compile Include="Views\Semens.Designer.cs">
+      <DependentUpon>Semens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MenuInicial.Designer.cs">
       <DependentUpon>MenuInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DAOdb.cs" />
     <Compile Include="Models\Raca.cs" />
-    <Compile Include="TelaComunicacao.cs">
+    <Compile Include="Views\TelaComunicacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaComunicacao.Designer.cs">
+    <Compile Include="Views\TelaComunicacao.Designer.cs">
       <DependentUpon>TelaComunicacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Animais.resx">
+    <EmbeddedResource Include="Views\Animais.resx">
       <DependentUpon>Animais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fazendas.resx">
+    <EmbeddedResource Include="Views\Fazendas.resx">
       <DependentUpon>Fazendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuInicial.resx">
+    <EmbeddedResource Include="Views\MenuInicial.resx">
       <DependentUpon>MenuInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaComunicacao.resx">
+    <EmbeddedResource Include="Views\Semens.resx">
+      <DependentUpon>Semens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaComunicacao.resx">
       <DependentUpon>TelaComunicacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

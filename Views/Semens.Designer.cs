@@ -1,6 +1,6 @@
-﻿namespace TCC
+﻿namespace TCC.Views
 {
-    partial class Fazendas
+    partial class Semens
     {
         /// <summary>
         /// Required designer variable.
@@ -28,41 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnConsultarSemen = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // BtnConsultarSemen
             // 
-            this.button1.Location = new System.Drawing.Point(528, 386);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnConsultarSemen.Location = new System.Drawing.Point(625, 343);
+            this.BtnConsultarSemen.Name = "BtnConsultarSemen";
+            this.BtnConsultarSemen.Size = new System.Drawing.Size(75, 23);
+            this.BtnConsultarSemen.TabIndex = 0;
+            this.BtnConsultarSemen.Text = "Consultar";
+            this.BtnConsultarSemen.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(123, 93);
+            this.dataGridView1.Location = new System.Drawing.Point(84, 40);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(479, 275);
+            this.dataGridView1.Size = new System.Drawing.Size(616, 270);
             this.dataGridView1.TabIndex = 1;
             // 
-            // Fazendas
+            // Semens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(782, 412);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Name = "Fazendas";
-            this.Text = "Fazendas";
-            this.Load += new System.EventHandler(this.Fazendas_Load);
+            this.Controls.Add(this.BtnConsultarSemen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Semens";
+            this.Text = "Semens";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -70,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnConsultarSemen;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

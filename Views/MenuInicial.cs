@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using TCC.Views;
 
 
 namespace TCC
@@ -17,6 +18,8 @@ namespace TCC
         public MenuInicial()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleasedCapture();
@@ -42,22 +45,12 @@ namespace TCC
                        
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            abrirFormNoPainel(new Animais());
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
         {
 
         }
@@ -79,11 +72,18 @@ namespace TCC
 
         private void btnAnimais_Click(object sender, EventArgs e)
         {
+            abrirFormNoPainel(new Animais());
 
         }
 
         private void btnSêmens_Click(object sender, EventArgs e)
         {
+            abrirFormNoPainel(new Semens());
+        }
+
+        private void btnConfiguracoes_Click(object sender, EventArgs e)
+        {
+            abrirFormNoPainel(new TelaComunicacao());
 
         }
     }
