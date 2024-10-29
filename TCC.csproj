@@ -86,7 +86,6 @@
     <Compile Include="Views\MenuInicial.Designer.cs">
       <DependentUpon>MenuInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAOdb.cs" />
     <Compile Include="Models\Raca.cs" />
     <Compile Include="Views\TelaComunicacao.cs">
       <SubType>Form</SubType>
