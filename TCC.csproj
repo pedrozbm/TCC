@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DatabaseConnection.cs" />
     <Compile Include="Views\Animais.cs">
       <SubType>Form</SubType>
     </Compile>

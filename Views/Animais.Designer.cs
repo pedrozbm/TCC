@@ -99,9 +99,10 @@ namespace TCC
             
              try
             {
+                using (SqlConnection conexao = DatabaseConnection.GetConnection())
                 {
-                    conexao = new SqlConnection(@"Server = DESKTOP-VQFPMN5; Database = tcc; User Id = .; Integrated Security=true;");
-                    string strSQL = "SELECT ID_Fazenda, Nome_Fazenda FROM Fazendas";
+                    
+                        string strSQL = "SELECT ID_Fazenda, Nome_Fazenda FROM Fazendas";
                     SqlCommand comando = new SqlCommand(strSQL, conexao);
                     SqlDataAdapter adapter = new SqlDataAdapter(comando);
                     DataTable dataTable = new DataTable();
