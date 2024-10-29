@@ -1,4 +1,9 @@
-﻿namespace TCC
+﻿using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
+using System;
+
+namespace TCC
 {
     partial class Animais
     {
@@ -29,41 +34,55 @@
         private void InitializeComponent()
         {
             this.btnConsultaAnimais = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvAnimais = new System.Windows.Forms.DataGridView();
+            this.cbFazendas = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConsultaAnimais
             // 
-            this.btnConsultaAnimais.Location = new System.Drawing.Point(251, 96);
+            this.btnConsultaAnimais.Location = new System.Drawing.Point(19, 73);
+            this.btnConsultaAnimais.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultaAnimais.Name = "btnConsultaAnimais";
-            this.btnConsultaAnimais.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultaAnimais.Size = new System.Drawing.Size(56, 19);
             this.btnConsultaAnimais.TabIndex = 0;
             this.btnConsultaAnimais.Text = "Consultar";
             this.btnConsultaAnimais.UseVisualStyleBackColor = true;
-            this.btnConsultaAnimais.Click += new System.EventHandler(this.button1_Click);
+            this.btnConsultaAnimais.Click += new System.EventHandler(this.btnConsultaAnimais_Click);
             // 
-            // dataGridView1
+            // dgvAnimais
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(251, 136);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(349, 209);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvAnimais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnimais.Location = new System.Drawing.Point(19, 124);
+            this.dgvAnimais.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvAnimais.Name = "dgvAnimais";
+            this.dgvAnimais.RowHeadersWidth = 51;
+            this.dgvAnimais.RowTemplate.Height = 24;
+            this.dgvAnimais.Size = new System.Drawing.Size(515, 170);
+            this.dgvAnimais.TabIndex = 1;
+            // 
+            // cbFazendas
+            // 
+            this.cbFazendas.FormattingEnabled = true;
+            this.cbFazendas.Location = new System.Drawing.Point(223, 71);
+            this.cbFazendas.Name = "cbFazendas";
+            this.cbFazendas.Size = new System.Drawing.Size(121, 21);
+            this.cbFazendas.TabIndex = 2;
             // 
             // Animais
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 412);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(586, 335);
+            this.Controls.Add(this.cbFazendas);
+            this.Controls.Add(this.dgvAnimais);
             this.Controls.Add(this.btnConsultaAnimais);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Animais";
             this.Text = "Animais";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Animais_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,6 +90,32 @@
         #endregion
 
         private System.Windows.Forms.Button btnConsultaAnimais;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbFazendas;
+        private System.Windows.Forms.DataGridView dgvAnimais;
+
+        private void Animais_Load(object sender, System.EventArgs e)
+        {
+
+            
+             try
+            {
+                {
+                    conexao = new SqlConnection(@"Server = DESKTOP-VQFPMN5; Database = tcc; User Id = .; Integrated Security=true;");
+                    string strSQL = "SELECT ID_Fazenda, Nome_Fazenda FROM Fazendas";
+                    SqlCommand comando = new SqlCommand(strSQL, conexao);
+                    SqlDataAdapter adapter = new SqlDataAdapter(comando);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    cbFazendas.DataSource = dataTable;
+                    cbFazendas.DisplayMember = "Nome_Fazenda";
+                    cbFazendas.ValueMember = "ID_Fazenda";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar fazendas: " + ex.Message);
+            }
+        }
     }
 }
