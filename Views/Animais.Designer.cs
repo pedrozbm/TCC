@@ -52,14 +52,18 @@ namespace TCC
             // 
             // dgvAnimais
             // 
+            this.dgvAnimais.AllowUserToAddRows = false;
+            this.dgvAnimais.AllowUserToDeleteRows = false;
             this.dgvAnimais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnimais.Location = new System.Drawing.Point(19, 124);
             this.dgvAnimais.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAnimais.Name = "dgvAnimais";
+            this.dgvAnimais.ReadOnly = true;
             this.dgvAnimais.RowHeadersWidth = 51;
             this.dgvAnimais.RowTemplate.Height = 24;
             this.dgvAnimais.Size = new System.Drawing.Size(515, 170);
             this.dgvAnimais.TabIndex = 1;
+            this.dgvAnimais.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnimais_CellContentClick);
             // 
             // cbFazendas
             // 

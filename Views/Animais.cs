@@ -30,11 +30,12 @@ namespace TCC
                 {
                     string strSQL = @"
                 SELECT 
-                    A.Nome AS Nome_Animal, 
-                    R.Nome_Raca, 
-                    G.Tipo_Genero AS Tipo_Genero, 
-                    P.Nome AS Nome_Proprietario, 
-                    F.Nome_Fazenda 
+                    
+                    A.Nome AS Animal, 
+                    R.Nome_Raca AS Raça, 
+                    G.Tipo_Genero AS Sexo, 
+                    P.Nome AS Proprietario, 
+                    F.Nome_Fazenda as Fazenda
                 FROM 
                     Animais A
                 JOIN 
@@ -72,6 +73,10 @@ namespace TCC
             }
         }
 
+        private void dgvAnimais_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
+    }
         }
        
