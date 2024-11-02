@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DatabaseConnection.cs" />
+    <Compile Include="Views\AdicionarAnimais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdicionarAnimais.Designer.cs">
+      <DependentUpon>AdicionarAnimais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Animais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +93,6 @@
     <Compile Include="Views\MenuInicial.Designer.cs">
       <DependentUpon>MenuInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Raca.cs" />
     <Compile Include="Views\TelaComunicacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +101,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\AdicionarAnimais.resx">
+      <DependentUpon>AdicionarAnimais.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Animais.resx">
       <DependentUpon>Animais.cs</DependentUpon>
     </EmbeddedResource>

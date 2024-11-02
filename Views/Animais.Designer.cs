@@ -36,6 +36,7 @@ namespace TCC
             this.btnConsultaAnimais = new System.Windows.Forms.Button();
             this.dgvAnimais = new System.Windows.Forms.DataGridView();
             this.cbFazendas = new System.Windows.Forms.ComboBox();
+            this.btnAdicionarAnimal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,6 @@ namespace TCC
             this.dgvAnimais.RowTemplate.Height = 24;
             this.dgvAnimais.Size = new System.Drawing.Size(515, 170);
             this.dgvAnimais.TabIndex = 1;
-            this.dgvAnimais.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnimais_CellContentClick);
             // 
             // cbFazendas
             // 
@@ -73,11 +73,22 @@ namespace TCC
             this.cbFazendas.Size = new System.Drawing.Size(121, 21);
             this.cbFazendas.TabIndex = 2;
             // 
+            // btnAdicionarAnimal
+            // 
+            this.btnAdicionarAnimal.Location = new System.Drawing.Point(459, 25);
+            this.btnAdicionarAnimal.Name = "btnAdicionarAnimal";
+            this.btnAdicionarAnimal.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionarAnimal.TabIndex = 3;
+            this.btnAdicionarAnimal.Text = "Adicionar Animal";
+            this.btnAdicionarAnimal.UseVisualStyleBackColor = true;
+            this.btnAdicionarAnimal.Click += new System.EventHandler(this.btnAdicionarAnimal_Click);
+            // 
             // Animais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 335);
+            this.Controls.Add(this.btnAdicionarAnimal);
             this.Controls.Add(this.cbFazendas);
             this.Controls.Add(this.dgvAnimais);
             this.Controls.Add(this.btnConsultaAnimais);
@@ -122,5 +133,7 @@ namespace TCC
                 MessageBox.Show("Erro ao carregar fazendas: " + ex.Message);
             }
         }
+
+        private Button btnAdicionarAnimal;
     }
 }

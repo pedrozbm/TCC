@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TCC.Views;
 
 namespace TCC
 {
@@ -17,10 +12,6 @@ namespace TCC
         {
             InitializeComponent();
         }
-        SqlConnection conexao;
-        SqlCommand comando;
-        SqlDataAdapter da;
-        SqlDataReader dr;
 
         private void btnConsultaAnimais_Click(object sender, EventArgs e)
         {
@@ -73,10 +64,17 @@ namespace TCC
             }
         }
 
-        private void dgvAnimais_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAdicionarAnimal_Click(object sender, EventArgs e)
         {
+            // Instanciar o formulário de adição de animal
+            AdicionarAnimais formAdicionarAnimal = new AdicionarAnimais();
 
+            // Exibir o formulário como uma janela modal
+            formAdicionarAnimal.ShowDialog();
+
+          
+            
         }
     }
-        }
-       
+}
+

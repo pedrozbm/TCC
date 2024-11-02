@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TCC
@@ -99,13 +92,13 @@ namespace TCC
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(serialPort1.IsOpen == true)
+            if (serialPort1.IsOpen == true)
                 serialPort1.Close();
         }
 
         private void btEnviar_Click(object sender, EventArgs e)
         {
-            if(serialPort1.IsOpen == true )
+            if (serialPort1.IsOpen == true)
             {
                 serialPort1.Write(textBoxEnviar.Text);
             }
