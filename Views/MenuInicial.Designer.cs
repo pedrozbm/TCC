@@ -34,7 +34,7 @@
             this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.btnSêmens = new System.Windows.Forms.Button();
             this.btnProtocolos = new System.Windows.Forms.Button();
-            this.btnFazendas = new System.Windows.Forms.Button();
+            this.btnGerenciarFazendas = new System.Windows.Forms.Button();
             this.menuSuperior = new System.Windows.Forms.Panel();
             this.btnSlide = new System.Windows.Forms.PictureBox();
             this.panelContanedor = new System.Windows.Forms.Panel();
@@ -65,7 +65,7 @@
             this.menuVertical.Controls.Add(this.btnConfiguracoes);
             this.menuVertical.Controls.Add(this.btnSêmens);
             this.menuVertical.Controls.Add(this.btnProtocolos);
-            this.menuVertical.Controls.Add(this.btnFazendas);
+            this.menuVertical.Controls.Add(this.btnGerenciarFazendas);
             this.menuVertical.Controls.Add(this.btnAnimais);
             resources.ApplyResources(this.menuVertical, "menuVertical");
             this.menuVertical.Name = "menuVertical";
@@ -115,20 +115,20 @@
             this.btnProtocolos.Name = "btnProtocolos";
             this.btnProtocolos.UseVisualStyleBackColor = false;
             // 
-            // btnFazendas
+            // btnGerenciarFazendas
             // 
-            this.btnFazendas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            resources.ApplyResources(this.btnFazendas, "btnFazendas");
-            this.btnFazendas.BackColor = System.Drawing.Color.Transparent;
-            this.btnFazendas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFazendas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFazendas.FlatAppearance.BorderSize = 0;
-            this.btnFazendas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Ivory;
-            this.btnFazendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnFazendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnFazendas.Name = "btnFazendas";
-            this.btnFazendas.UseVisualStyleBackColor = false;
-            this.btnFazendas.Click += new System.EventHandler(this.btnFazendas_Click);
+            this.btnGerenciarFazendas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            resources.ApplyResources(this.btnGerenciarFazendas, "btnGerenciarFazendas");
+            this.btnGerenciarFazendas.BackColor = System.Drawing.Color.Transparent;
+            this.btnGerenciarFazendas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGerenciarFazendas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGerenciarFazendas.FlatAppearance.BorderSize = 0;
+            this.btnGerenciarFazendas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Ivory;
+            this.btnGerenciarFazendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnGerenciarFazendas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGerenciarFazendas.Name = "btnGerenciarFazendas";
+            this.btnGerenciarFazendas.UseVisualStyleBackColor = false;
+            this.btnGerenciarFazendas.Click += new System.EventHandler(this.btnFazendas_Click);
             // 
             // menuSuperior
             // 
@@ -181,6 +181,6 @@
         private System.Windows.Forms.Button btnSêmens;
         private System.Windows.Forms.Button btnProtocolos;
         private System.Windows.Forms.Panel panelContanedor;
-        private System.Windows.Forms.Button btnFazendas;
+        private System.Windows.Forms.Button btnGerenciarFazendas;
     }
 }

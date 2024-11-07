@@ -75,17 +75,29 @@
     <Compile Include="Views\Animais.Designer.cs">
       <DependentUpon>Animais.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Fazendas.cs">
+    <Compile Include="Views\FormAdicionarSemen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Fazendas.Designer.cs">
-      <DependentUpon>Fazendas.cs</DependentUpon>
+    <Compile Include="Views\FormAdicionarSemen.Designer.cs">
+      <DependentUpon>FormAdicionarSemen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Semens.cs">
+    <Compile Include="Views\FormAlterarAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Semens.Designer.cs">
-      <DependentUpon>Semens.cs</DependentUpon>
+    <Compile Include="Views\FormAlterarAnimal.Designer.cs">
+      <DependentUpon>FormAlterarAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormGerenciarFazendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormGerenciarFazendas.Designer.cs">
+      <DependentUpon>FormGerenciarFazendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormSemens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormSemens.Designer.cs">
+      <DependentUpon>FormSemens.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MenuInicial.cs">
       <SubType>Form</SubType>
@@ -107,14 +119,20 @@
     <EmbeddedResource Include="Views\Animais.resx">
       <DependentUpon>Animais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Fazendas.resx">
-      <DependentUpon>Fazendas.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormAdicionarSemen.resx">
+      <DependentUpon>FormAdicionarSemen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormAlterarAnimal.resx">
+      <DependentUpon>FormAlterarAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormGerenciarFazendas.resx">
+      <DependentUpon>FormGerenciarFazendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormSemens.resx">
+      <DependentUpon>FormSemens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuInicial.resx">
       <DependentUpon>MenuInicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Semens.resx">
-      <DependentUpon>Semens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaComunicacao.resx">
       <DependentUpon>TelaComunicacao.cs</DependentUpon>

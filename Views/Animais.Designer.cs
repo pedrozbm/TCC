@@ -37,6 +37,8 @@ namespace TCC
             this.dgvAnimais = new System.Windows.Forms.DataGridView();
             this.cbFazendas = new System.Windows.Forms.ComboBox();
             this.btnAdicionarAnimal = new System.Windows.Forms.Button();
+            this.btnAlterarAnimal = new System.Windows.Forms.Button();
+            this.btnExcluirAnimal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@ namespace TCC
             this.dgvAnimais.RowTemplate.Height = 24;
             this.dgvAnimais.Size = new System.Drawing.Size(515, 170);
             this.dgvAnimais.TabIndex = 1;
+            this.dgvAnimais.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnimais_CellContentClick);
             // 
             // cbFazendas
             // 
@@ -83,11 +86,33 @@ namespace TCC
             this.btnAdicionarAnimal.UseVisualStyleBackColor = true;
             this.btnAdicionarAnimal.Click += new System.EventHandler(this.btnAdicionarAnimal_Click);
             // 
+            // btnAlterarAnimal
+            // 
+            this.btnAlterarAnimal.Location = new System.Drawing.Point(459, 54);
+            this.btnAlterarAnimal.Name = "btnAlterarAnimal";
+            this.btnAlterarAnimal.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterarAnimal.TabIndex = 4;
+            this.btnAlterarAnimal.Text = "Alterar";
+            this.btnAlterarAnimal.UseVisualStyleBackColor = true;
+            this.btnAlterarAnimal.Click += new System.EventHandler(this.btnAlterarAnimal_Click);
+            // 
+            // btnExcluirAnimal
+            // 
+            this.btnExcluirAnimal.Location = new System.Drawing.Point(459, 83);
+            this.btnExcluirAnimal.Name = "btnExcluirAnimal";
+            this.btnExcluirAnimal.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirAnimal.TabIndex = 5;
+            this.btnExcluirAnimal.Text = "Excluir";
+            this.btnExcluirAnimal.UseVisualStyleBackColor = true;
+            this.btnExcluirAnimal.Click += new System.EventHandler(this.btnExcluirAnimal_Click);
+            // 
             // Animais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 335);
+            this.Controls.Add(this.btnExcluirAnimal);
+            this.Controls.Add(this.btnAlterarAnimal);
             this.Controls.Add(this.btnAdicionarAnimal);
             this.Controls.Add(this.cbFazendas);
             this.Controls.Add(this.dgvAnimais);
@@ -135,5 +160,7 @@ namespace TCC
         }
 
         private Button btnAdicionarAnimal;
+        private Button btnAlterarAnimal;
+        private Button btnExcluirAnimal;
     }
 }

@@ -16,12 +16,46 @@ namespace TCC.Views
         public AdicionarAnimais()
         {
             InitializeComponent();
-        }
 
-        private void tbNome_TextChanged(object sender, EventArgs e)
+        }
+        private void CarregarDadosAnimal()
         {
+            using (SqlConnection conexao = DatabaseConnection.GetConnection())
+            {
+                string strSQL = "SELECT Nome, ID_Raca, ID_Genero, Data_Nascimento, ID_Proprietario, ID_Fazenda FROM Animais WHERE ID_Animal = @ID_Animal";
 
+                SqlCommand comando = new SqlCommand(strSQL, conexao);
+                comando.Parameters.AddWithValue("@ID_Animal", idAnimal);
+
+                conexao.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    tbNome.Text = reader["Nome"].ToString();
+                    cbRaca.SelectedValue = reader["ID_Raca"];
+                    cbGenero.SelectedValue = reader["ID_Genero"];
+                    tbNascimento.Text = Convert.ToDateTime(reader["Data_Nascimento"]).ToString("dd/MM/yyyy");
+                    cbProprietario.SelectedValue = reader["ID_Proprietario"];
+                    cbFazenda.SelectedValue = reader["ID_Fazenda"];
+                }
+            }
         }
+        private int idAnimal;
+
+        // Construtor que aceita um ID do animal para edição
+        public AdicionarAnimais(int idAnimal)
+        {
+            InitializeComponent(); // Inicializa os componentes do formulário
+            this.idAnimal = idAnimal; // Armazena o ID do animal
+
+            CarregarDadosAnimal(); // Método que carrega os dados do animal para edição
+        }
+
+
+
+
+
 
         private void AdicionarAnimais_Load(object sender, EventArgs e)
         {

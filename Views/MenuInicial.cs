@@ -58,10 +58,7 @@ namespace TCC
 
         }
 
-        private void btnFazendas_Click(object sender, EventArgs e)
-        {
-            abrirFormNoPainel(new Fazendas());
-        }
+    
 
         private void btnAnimais_Click(object sender, EventArgs e)
         {
@@ -71,12 +68,19 @@ namespace TCC
 
         private void btnSêmens_Click(object sender, EventArgs e)
         {
-            abrirFormNoPainel(new Semens());
+            abrirFormNoPainel(new FormSemens());
         }
 
         private void btnConfiguracoes_Click(object sender, EventArgs e)
         {
             abrirFormNoPainel(new TelaComunicacao());
+
+        }
+
+        private void btnFazendas_Click(object sender, EventArgs e)
+        {
+            FormGerenciarFazendas formFazendas = new FormGerenciarFazendas();
+            formFazendas.ShowDialog();
 
         }
     }

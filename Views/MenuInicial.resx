@@ -127,10 +127,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAnimais.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 89</value>
+    <value>8, 72</value>
+  </data>
+  <data name="btnAnimais.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnAnimais.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+    <value>128, 24</value>
   </data>
   <data name="btnAnimais.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -163,10 +166,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnConfiguracoes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 426</value>
+    <value>8, 346</value>
+  </data>
+  <data name="btnConfiguracoes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnConfiguracoes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+    <value>128, 24</value>
   </data>
   <data name="btnConfiguracoes.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -196,10 +202,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnSêmens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 197</value>
+    <value>8, 160</value>
+  </data>
+  <data name="btnSêmens.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnSêmens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+    <value>128, 24</value>
   </data>
   <data name="btnSêmens.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -229,10 +238,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnProtocolos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 161</value>
+    <value>8, 131</value>
+  </data>
+  <data name="btnProtocolos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnProtocolos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+    <value>128, 24</value>
   </data>
   <data name="btnProtocolos.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -252,37 +264,40 @@
   <data name="&gt;&gt;btnProtocolos.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnFazendas.AutoSize" type="System.Boolean, mscorlib">
+  <data name="btnGerenciarFazendas.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btnFazendas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnGerenciarFazendas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnFazendas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnGerenciarFazendas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnFazendas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 125</value>
+  <data name="btnGerenciarFazendas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 102</value>
   </data>
-  <data name="btnFazendas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+  <data name="btnGerenciarFazendas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="btnFazendas.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnGerenciarFazendas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 24</value>
+  </data>
+  <data name="btnGerenciarFazendas.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="btnFazendas.Text" xml:space="preserve">
+  <data name="btnGerenciarFazendas.Text" xml:space="preserve">
     <value>Fazendas</value>
   </data>
-  <data name="&gt;&gt;btnFazendas.Name" xml:space="preserve">
-    <value>btnFazendas</value>
+  <data name="&gt;&gt;btnGerenciarFazendas.Name" xml:space="preserve">
+    <value>btnGerenciarFazendas</value>
   </data>
-  <data name="&gt;&gt;btnFazendas.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnGerenciarFazendas.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnFazendas.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnGerenciarFazendas.Parent" xml:space="preserve">
     <value>menuVertical</value>
   </data>
-  <data name="&gt;&gt;btnFazendas.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnGerenciarFazendas.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="menuVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -291,8 +306,11 @@
   <data name="menuVertical.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="menuVertical.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="menuVertical.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 468</value>
+    <value>137, 380</value>
   </data>
   <data name="menuVertical.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -309,10 +327,49 @@
   <data name="&gt;&gt;menuVertical.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;btnSlide.Name" xml:space="preserve">
+    <value>btnSlide</value>
+  </data>
+  <data name="&gt;&gt;btnSlide.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSlide.Parent" xml:space="preserve">
+    <value>menuSuperior</value>
+  </data>
+  <data name="&gt;&gt;btnSlide.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="menuSuperior.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="menuSuperior.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="menuSuperior.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="menuSuperior.Size" type="System.Drawing.Size, System.Drawing">
+    <value>587, 46</value>
+  </data>
+  <data name="menuSuperior.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;menuSuperior.Name" xml:space="preserve">
+    <value>menuSuperior</value>
+  </data>
+  <data name="&gt;&gt;menuSuperior.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuSuperior.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuSuperior.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="btnSlide.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        DgAACw4BQL7hQQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>
@@ -320,16 +377,19 @@
   <data name="btnSlide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        DgAACw4BQL7hQQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>
   </data>
   <data name="btnSlide.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 12</value>
+    <value>4, 10</value>
+  </data>
+  <data name="btnSlide.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnSlide.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
+    <value>22, 24</value>
   </data>
   <data name="btnSlide.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -349,38 +409,17 @@
   <data name="&gt;&gt;btnSlide.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="menuSuperior.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="menuSuperior.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 0</value>
-  </data>
-  <data name="menuSuperior.Size" type="System.Drawing.Size, System.Drawing">
-    <value>782, 56</value>
-  </data>
-  <data name="menuSuperior.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;menuSuperior.Name" xml:space="preserve">
-    <value>menuSuperior</value>
-  </data>
-  <data name="&gt;&gt;menuSuperior.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuSuperior.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuSuperior.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="panelContanedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="panelContanedor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 56</value>
+    <value>137, 46</value>
+  </data>
+  <data name="panelContanedor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="panelContanedor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>782, 412</value>
+    <value>587, 334</value>
   </data>
   <data name="panelContanedor.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -401,10 +440,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>965, 468</value>
+    <value>724, 380</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>MenuInicial</value>
