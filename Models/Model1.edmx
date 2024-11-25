@@ -1,0 +1,868 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tccModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Animais">
+          <Key>
+            <PropertyRef Name="ID_Animal" />
+          </Key>
+          <Property Name="ID_Animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" />
+          <Property Name="ID_Raca" Type="int" />
+          <Property Name="ID_Genero" Type="int" />
+          <Property Name="Data_Nascimento" Type="date" />
+          <Property Name="ID_Proprietario" Type="int" />
+          <Property Name="ID_Fazenda" Type="int" />
+        </EntityType>
+        <EntityType Name="Cidades">
+          <Key>
+            <PropertyRef Name="ID_Cidade" />
+          </Key>
+          <Property Name="ID_Cidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Cidade" Type="varchar" MaxLength="100" />
+          <Property Name="CEP" Type="varchar" MaxLength="20" />
+          <Property Name="ID_Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Diagnostico_Pos">
+          <Key>
+            <PropertyRef Name="ID_Pos_Diagnostico" />
+          </Key>
+          <Property Name="ID_Pos_Diagnostico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Inseminacao" Type="int" />
+          <Property Name="Data_Pos_Diagnostico" Type="date" />
+          <Property Name="Sucesso_Pos" Type="bit" />
+          <Property Name="Detalhes_Pos" Type="varchar" MaxLength="255" />
+          <Property Name="Observacoes_Pos" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Diagnostico_Pre">
+          <Key>
+            <PropertyRef Name="ID_Pre_Diagnostico" />
+          </Key>
+          <Property Name="ID_Pre_Diagnostico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Inseminacao" Type="int" />
+          <Property Name="Data_Pre_Diagnostico" Type="date" />
+          <Property Name="Score_Pre" Type="bit" />
+          <Property Name="Detalhes_Pre" Type="varchar" MaxLength="255" />
+          <Property Name="Observacoes_Pre" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="ID_Estado" />
+          </Key>
+          <Property Name="ID_Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Fazendas">
+          <Key>
+            <PropertyRef Name="ID_Fazenda" />
+          </Key>
+          <Property Name="ID_Fazenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Fazenda" Type="varchar" MaxLength="100" />
+          <Property Name="Endereco" Type="varchar" MaxLength="255" />
+          <Property Name="ID_Cidade" Type="int" />
+          <Property Name="ID_Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="ID_Genero" />
+          </Key>
+          <Property Name="ID_Genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo_Genero" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inseminacoes">
+          <Key>
+            <PropertyRef Name="ID_Inseminacao" />
+          </Key>
+          <Property Name="ID_Inseminacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Animal" Type="int" />
+          <Property Name="Data_Inseminacao" Type="date" />
+          <Property Name="Metodo_Inseminacao" Type="varchar" MaxLength="100" />
+          <Property Name="ID_Inseminador" Type="int" />
+          <Property Name="Observacoes" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Inseminadores">
+          <Key>
+            <PropertyRef Name="ID_Inseminador" />
+          </Key>
+          <Property Name="ID_Inseminador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" />
+          <Property Name="Especializacao" Type="varchar" MaxLength="100" />
+          <Property Name="Certificacoes" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Proprietarios">
+          <Key>
+            <PropertyRef Name="ID_Proprietario" />
+          </Key>
+          <Property Name="ID_Proprietario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" />
+          <Property Name="ID_Fazenda" Type="int" />
+          <Property Name="Numero_Contato" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Racas">
+          <Key>
+            <PropertyRef Name="ID_Raca" />
+          </Key>
+          <Property Name="ID_Raca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Raca" Type="varchar" MaxLength="100" />
+          <Property Name="Descricao_Raca" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Semens">
+          <Key>
+            <PropertyRef Name="ID_Semen" />
+          </Key>
+          <Property Name="ID_Semen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="100" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="Data_Validade" Type="date" />
+          <Property Name="ID_Proprietario" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Animais_Fazendas">
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fazendas">
+              <PropertyRef Name="ID_Fazenda" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Fazenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Gene_52593CB8">
+          <End Role="Generos" Type="Self.Generos" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="ID_Genero" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Prop_534D60F1">
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Proprietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Raca_5165187F">
+          <End Role="Racas" Type="Self.Racas" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racas">
+              <PropertyRef Name="ID_Raca" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Raca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cidades_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+          <End Role="Cidades" Type="Self.Cidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID_Estado" />
+            </Principal>
+            <Dependent Role="Cidades">
+              <PropertyRef Name="ID_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnostiID_In_59FA5E80">
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="0..1" />
+          <End Role="Diagnostico_Pre" Type="Self.Diagnostico_Pre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Principal>
+            <Dependent Role="Diagnostico_Pre">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnostiID_In_5CD6CB2B">
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="0..1" />
+          <End Role="Diagnostico_Pos" Type="Self.Diagnostico_Pos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Principal>
+            <Dependent Role="Diagnostico_Pos">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FazendasID_Cid_4AB81AF0">
+          <End Role="Cidades" Type="Self.Cidades" Multiplicity="0..1" />
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidades">
+              <PropertyRef Name="ID_Cidade" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Cidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FazendasID_Est_4BAC3F29">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID_Estado" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InseminacID_An_5629CD9C">
+          <End Role="Animais" Type="Self.Animais" Multiplicity="0..1" />
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animais">
+              <PropertyRef Name="ID_Animal" />
+            </Principal>
+            <Dependent Role="Inseminacoes">
+              <PropertyRef Name="ID_Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InseminacID_In_571DF1D5">
+          <End Role="Inseminadores" Type="Self.Inseminadores" Multiplicity="0..1" />
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminadores">
+              <PropertyRef Name="ID_Inseminador" />
+            </Principal>
+            <Dependent Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProprietaID_Fa_4E88ABD4">
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fazendas">
+              <PropertyRef Name="ID_Fazenda" />
+            </Principal>
+            <Dependent Role="Proprietarios">
+              <PropertyRef Name="ID_Fazenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tccModelStoreContainer">
+          <EntitySet Name="Animais" EntityType="Self.Animais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cidades" EntityType="Self.Cidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnostico_Pos" EntityType="Self.Diagnostico_Pos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnostico_Pre" EntityType="Self.Diagnostico_Pre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fazendas" EntityType="Self.Fazendas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inseminacoes" EntityType="Self.Inseminacoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inseminadores" EntityType="Self.Inseminadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Racas" EntityType="Self.Racas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semens" EntityType="Self.Semens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Animais_Fazendas" Association="Self.FK_Animais_Fazendas">
+            <End Role="Fazendas" EntitySet="Fazendas" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Gene_52593CB8" Association="Self.FK_AnimaisID_Gene_52593CB8">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Prop_534D60F1" Association="Self.FK_AnimaisID_Prop_534D60F1">
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Raca_5165187F" Association="Self.FK_AnimaisID_Raca_5165187F">
+            <End Role="Racas" EntitySet="Racas" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cidades_Estados" Association="Self.FK_Cidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Cidades" EntitySet="Cidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnostiID_In_59FA5E80" Association="Self.FK_DiagnostiID_In_59FA5E80">
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+            <End Role="Diagnostico_Pre" EntitySet="Diagnostico_Pre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnostiID_In_5CD6CB2B" Association="Self.FK_DiagnostiID_In_5CD6CB2B">
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+            <End Role="Diagnostico_Pos" EntitySet="Diagnostico_Pos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FazendasID_Cid_4AB81AF0" Association="Self.FK_FazendasID_Cid_4AB81AF0">
+            <End Role="Cidades" EntitySet="Cidades" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FazendasID_Est_4BAC3F29" Association="Self.FK_FazendasID_Est_4BAC3F29">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InseminacID_An_5629CD9C" Association="Self.FK_InseminacID_An_5629CD9C">
+            <End Role="Animais" EntitySet="Animais" />
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InseminacID_In_571DF1D5" Association="Self.FK_InseminacID_In_571DF1D5">
+            <End Role="Inseminadores" EntitySet="Inseminadores" />
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProprietaID_Fa_4E88ABD4" Association="Self.FK_ProprietaID_Fa_4E88ABD4">
+            <End Role="Fazendas" EntitySet="Fazendas" />
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Animais">
+          <Key>
+            <PropertyRef Name="ID_Animal" />
+          </Key>
+          <Property Name="ID_Animal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Raca" Type="Int32" />
+          <Property Name="ID_Genero" Type="Int32" />
+          <Property Name="Data_Nascimento" Type="DateTime" Precision="0" />
+          <Property Name="ID_Proprietario" Type="Int32" />
+          <Property Name="ID_Fazenda" Type="Int32" />
+          <NavigationProperty Name="Fazendas" Relationship="Self.FK_Animais_Fazendas" FromRole="Animais" ToRole="Fazendas" />
+          <NavigationProperty Name="Generos" Relationship="Self.FK_AnimaisID_Gene_52593CB8" FromRole="Animais" ToRole="Generos" />
+          <NavigationProperty Name="Proprietarios" Relationship="Self.FK_AnimaisID_Prop_534D60F1" FromRole="Animais" ToRole="Proprietarios" />
+          <NavigationProperty Name="Racas" Relationship="Self.FK_AnimaisID_Raca_5165187F" FromRole="Animais" ToRole="Racas" />
+          <NavigationProperty Name="Inseminacoes" Relationship="Self.FK_InseminacID_An_5629CD9C" FromRole="Animais" ToRole="Inseminacoes" />
+        </EntityType>
+        <EntityType Name="Cidades">
+          <Key>
+            <PropertyRef Name="ID_Cidade" />
+          </Key>
+          <Property Name="ID_Cidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Estado" Type="Int32" />
+          <NavigationProperty Name="Estados" Relationship="Self.FK_Cidades_Estados" FromRole="Cidades" ToRole="Estados" />
+          <NavigationProperty Name="Fazendas" Relationship="Self.FK_FazendasID_Cid_4AB81AF0" FromRole="Cidades" ToRole="Fazendas" />
+        </EntityType>
+        <EntityType Name="Diagnostico_Pos">
+          <Key>
+            <PropertyRef Name="ID_Pos_Diagnostico" />
+          </Key>
+          <Property Name="ID_Pos_Diagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Inseminacao" Type="Int32" />
+          <Property Name="Data_Pos_Diagnostico" Type="DateTime" Precision="0" />
+          <Property Name="Sucesso_Pos" Type="Boolean" />
+          <Property Name="Detalhes_Pos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Observacoes_Pos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inseminacoes" Relationship="Self.FK_DiagnostiID_In_5CD6CB2B" FromRole="Diagnostico_Pos" ToRole="Inseminacoes" />
+        </EntityType>
+        <EntityType Name="Diagnostico_Pre">
+          <Key>
+            <PropertyRef Name="ID_Pre_Diagnostico" />
+          </Key>
+          <Property Name="ID_Pre_Diagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Inseminacao" Type="Int32" />
+          <Property Name="Data_Pre_Diagnostico" Type="DateTime" Precision="0" />
+          <Property Name="Score_Pre" Type="Boolean" />
+          <Property Name="Detalhes_Pre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Observacoes_Pre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inseminacoes" Relationship="Self.FK_DiagnostiID_In_59FA5E80" FromRole="Diagnostico_Pre" ToRole="Inseminacoes" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="ID_Estado" />
+          </Key>
+          <Property Name="ID_Estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cidades" Relationship="Self.FK_Cidades_Estados" FromRole="Estados" ToRole="Cidades" />
+          <NavigationProperty Name="Fazendas" Relationship="Self.FK_FazendasID_Est_4BAC3F29" FromRole="Estados" ToRole="Fazendas" />
+        </EntityType>
+        <EntityType Name="Fazendas">
+          <Key>
+            <PropertyRef Name="ID_Fazenda" />
+          </Key>
+          <Property Name="ID_Fazenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Fazenda" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Cidade" Type="Int32" />
+          <Property Name="ID_Estado" Type="Int32" />
+          <NavigationProperty Name="Animais" Relationship="Self.FK_Animais_Fazendas" FromRole="Fazendas" ToRole="Animais" />
+          <NavigationProperty Name="Cidades" Relationship="Self.FK_FazendasID_Cid_4AB81AF0" FromRole="Fazendas" ToRole="Cidades" />
+          <NavigationProperty Name="Estados" Relationship="Self.FK_FazendasID_Est_4BAC3F29" FromRole="Fazendas" ToRole="Estados" />
+          <NavigationProperty Name="Proprietarios" Relationship="Self.FK_ProprietaID_Fa_4E88ABD4" FromRole="Fazendas" ToRole="Proprietarios" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="ID_Genero" />
+          </Key>
+          <Property Name="ID_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo_Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Animais" Relationship="Self.FK_AnimaisID_Gene_52593CB8" FromRole="Generos" ToRole="Animais" />
+        </EntityType>
+        <EntityType Name="Inseminacoes">
+          <Key>
+            <PropertyRef Name="ID_Inseminacao" />
+          </Key>
+          <Property Name="ID_Inseminacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Animal" Type="Int32" />
+          <Property Name="Data_Inseminacao" Type="DateTime" Precision="0" />
+          <Property Name="Metodo_Inseminacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Inseminador" Type="Int32" />
+          <Property Name="Observacoes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Animais" Relationship="Self.FK_InseminacID_An_5629CD9C" FromRole="Inseminacoes" ToRole="Animais" />
+          <NavigationProperty Name="Diagnostico_Pos" Relationship="Self.FK_DiagnostiID_In_5CD6CB2B" FromRole="Inseminacoes" ToRole="Diagnostico_Pos" />
+          <NavigationProperty Name="Diagnostico_Pre" Relationship="Self.FK_DiagnostiID_In_59FA5E80" FromRole="Inseminacoes" ToRole="Diagnostico_Pre" />
+          <NavigationProperty Name="Inseminadores" Relationship="Self.FK_InseminacID_In_571DF1D5" FromRole="Inseminacoes" ToRole="Inseminadores" />
+        </EntityType>
+        <EntityType Name="Inseminadores">
+          <Key>
+            <PropertyRef Name="ID_Inseminador" />
+          </Key>
+          <Property Name="ID_Inseminador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Especializacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Certificacoes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inseminacoes" Relationship="Self.FK_InseminacID_In_571DF1D5" FromRole="Inseminadores" ToRole="Inseminacoes" />
+        </EntityType>
+        <EntityType Name="Proprietarios">
+          <Key>
+            <PropertyRef Name="ID_Proprietario" />
+          </Key>
+          <Property Name="ID_Proprietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Fazenda" Type="Int32" />
+          <Property Name="Numero_Contato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Animais" Relationship="Self.FK_AnimaisID_Prop_534D60F1" FromRole="Proprietarios" ToRole="Animais" />
+          <NavigationProperty Name="Fazendas" Relationship="Self.FK_ProprietaID_Fa_4E88ABD4" FromRole="Proprietarios" ToRole="Fazendas" />
+        </EntityType>
+        <EntityType Name="Racas">
+          <Key>
+            <PropertyRef Name="ID_Raca" />
+          </Key>
+          <Property Name="ID_Raca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Raca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao_Raca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Animais" Relationship="Self.FK_AnimaisID_Raca_5165187F" FromRole="Racas" ToRole="Animais" />
+        </EntityType>
+        <EntityType Name="Semens">
+          <Key>
+            <PropertyRef Name="ID_Semen" />
+          </Key>
+          <Property Name="ID_Semen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="Data_Validade" Type="DateTime" Precision="0" />
+          <Property Name="ID_Proprietario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Animais_Fazendas">
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fazendas">
+              <PropertyRef Name="ID_Fazenda" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Fazenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Gene_52593CB8">
+          <End Role="Generos" Type="Self.Generos" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="ID_Genero" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Prop_534D60F1">
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Proprietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimaisID_Raca_5165187F">
+          <End Role="Racas" Type="Self.Racas" Multiplicity="0..1" />
+          <End Role="Animais" Type="Self.Animais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racas">
+              <PropertyRef Name="ID_Raca" />
+            </Principal>
+            <Dependent Role="Animais">
+              <PropertyRef Name="ID_Raca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InseminacID_An_5629CD9C">
+          <End Role="Animais" Type="Self.Animais" Multiplicity="0..1" />
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animais">
+              <PropertyRef Name="ID_Animal" />
+            </Principal>
+            <Dependent Role="Inseminacoes">
+              <PropertyRef Name="ID_Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cidades_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+          <End Role="Cidades" Type="Self.Cidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID_Estado" />
+            </Principal>
+            <Dependent Role="Cidades">
+              <PropertyRef Name="ID_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FazendasID_Cid_4AB81AF0">
+          <End Role="Cidades" Type="Self.Cidades" Multiplicity="0..1" />
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidades">
+              <PropertyRef Name="ID_Cidade" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Cidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnostiID_In_5CD6CB2B">
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="0..1" />
+          <End Role="Diagnostico_Pos" Type="Self.Diagnostico_Pos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Principal>
+            <Dependent Role="Diagnostico_Pos">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnostiID_In_59FA5E80">
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="0..1" />
+          <End Role="Diagnostico_Pre" Type="Self.Diagnostico_Pre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Principal>
+            <Dependent Role="Diagnostico_Pre">
+              <PropertyRef Name="ID_Inseminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FazendasID_Est_4BAC3F29">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID_Estado" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProprietaID_Fa_4E88ABD4">
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fazendas">
+              <PropertyRef Name="ID_Fazenda" />
+            </Principal>
+            <Dependent Role="Proprietarios">
+              <PropertyRef Name="ID_Fazenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InseminacID_In_571DF1D5">
+          <End Role="Inseminadores" Type="Self.Inseminadores" Multiplicity="0..1" />
+          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inseminadores">
+              <PropertyRef Name="ID_Inseminador" />
+            </Principal>
+            <Dependent Role="Inseminacoes">
+              <PropertyRef Name="ID_Inseminador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tccEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animais" EntityType="Self.Animais" />
+          <EntitySet Name="Cidades" EntityType="Self.Cidades" />
+          <EntitySet Name="Diagnostico_Pos" EntityType="Self.Diagnostico_Pos" />
+          <EntitySet Name="Diagnostico_Pre" EntityType="Self.Diagnostico_Pre" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" />
+          <EntitySet Name="Fazendas" EntityType="Self.Fazendas" />
+          <EntitySet Name="Generos" EntityType="Self.Generos" />
+          <EntitySet Name="Inseminacoes" EntityType="Self.Inseminacoes" />
+          <EntitySet Name="Inseminadores" EntityType="Self.Inseminadores" />
+          <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" />
+          <EntitySet Name="Racas" EntityType="Self.Racas" />
+          <EntitySet Name="Semens" EntityType="Self.Semens" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Animais_Fazendas" Association="Self.FK_Animais_Fazendas">
+            <End Role="Fazendas" EntitySet="Fazendas" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Gene_52593CB8" Association="Self.FK_AnimaisID_Gene_52593CB8">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Prop_534D60F1" Association="Self.FK_AnimaisID_Prop_534D60F1">
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimaisID_Raca_5165187F" Association="Self.FK_AnimaisID_Raca_5165187F">
+            <End Role="Racas" EntitySet="Racas" />
+            <End Role="Animais" EntitySet="Animais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InseminacID_An_5629CD9C" Association="Self.FK_InseminacID_An_5629CD9C">
+            <End Role="Animais" EntitySet="Animais" />
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cidades_Estados" Association="Self.FK_Cidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Cidades" EntitySet="Cidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FazendasID_Cid_4AB81AF0" Association="Self.FK_FazendasID_Cid_4AB81AF0">
+            <End Role="Cidades" EntitySet="Cidades" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnostiID_In_5CD6CB2B" Association="Self.FK_DiagnostiID_In_5CD6CB2B">
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+            <End Role="Diagnostico_Pos" EntitySet="Diagnostico_Pos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnostiID_In_59FA5E80" Association="Self.FK_DiagnostiID_In_59FA5E80">
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+            <End Role="Diagnostico_Pre" EntitySet="Diagnostico_Pre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FazendasID_Est_4BAC3F29" Association="Self.FK_FazendasID_Est_4BAC3F29">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProprietaID_Fa_4E88ABD4" Association="Self.FK_ProprietaID_Fa_4E88ABD4">
+            <End Role="Fazendas" EntitySet="Fazendas" />
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InseminacID_In_571DF1D5" Association="Self.FK_InseminacID_In_571DF1D5">
+            <End Role="Inseminadores" EntitySet="Inseminadores" />
+            <End Role="Inseminacoes" EntitySet="Inseminacoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tccModelStoreContainer" CdmEntityContainer="tccEntities">
+          <EntitySetMapping Name="Animais">
+            <EntityTypeMapping TypeName="tccModel.Animais">
+              <MappingFragment StoreEntitySet="Animais">
+                <ScalarProperty Name="ID_Animal" ColumnName="ID_Animal" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID_Raca" ColumnName="ID_Raca" />
+                <ScalarProperty Name="ID_Genero" ColumnName="ID_Genero" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="ID_Proprietario" ColumnName="ID_Proprietario" />
+                <ScalarProperty Name="ID_Fazenda" ColumnName="ID_Fazenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cidades">
+            <EntityTypeMapping TypeName="tccModel.Cidades">
+              <MappingFragment StoreEntitySet="Cidades">
+                <ScalarProperty Name="ID_Cidade" ColumnName="ID_Cidade" />
+                <ScalarProperty Name="Nome_Cidade" ColumnName="Nome_Cidade" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnostico_Pos">
+            <EntityTypeMapping TypeName="tccModel.Diagnostico_Pos">
+              <MappingFragment StoreEntitySet="Diagnostico_Pos">
+                <ScalarProperty Name="ID_Pos_Diagnostico" ColumnName="ID_Pos_Diagnostico" />
+                <ScalarProperty Name="ID_Inseminacao" ColumnName="ID_Inseminacao" />
+                <ScalarProperty Name="Data_Pos_Diagnostico" ColumnName="Data_Pos_Diagnostico" />
+                <ScalarProperty Name="Sucesso_Pos" ColumnName="Sucesso_Pos" />
+                <ScalarProperty Name="Detalhes_Pos" ColumnName="Detalhes_Pos" />
+                <ScalarProperty Name="Observacoes_Pos" ColumnName="Observacoes_Pos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnostico_Pre">
+            <EntityTypeMapping TypeName="tccModel.Diagnostico_Pre">
+              <MappingFragment StoreEntitySet="Diagnostico_Pre">
+                <ScalarProperty Name="ID_Pre_Diagnostico" ColumnName="ID_Pre_Diagnostico" />
+                <ScalarProperty Name="ID_Inseminacao" ColumnName="ID_Inseminacao" />
+                <ScalarProperty Name="Data_Pre_Diagnostico" ColumnName="Data_Pre_Diagnostico" />
+                <ScalarProperty Name="Score_Pre" ColumnName="Score_Pre" />
+                <ScalarProperty Name="Detalhes_Pre" ColumnName="Detalhes_Pre" />
+                <ScalarProperty Name="Observacoes_Pre" ColumnName="Observacoes_Pre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="tccModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
+                <ScalarProperty Name="Nome_Estado" ColumnName="Nome_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fazendas">
+            <EntityTypeMapping TypeName="tccModel.Fazendas">
+              <MappingFragment StoreEntitySet="Fazendas">
+                <ScalarProperty Name="ID_Fazenda" ColumnName="ID_Fazenda" />
+                <ScalarProperty Name="Nome_Fazenda" ColumnName="Nome_Fazenda" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="ID_Cidade" ColumnName="ID_Cidade" />
+                <ScalarProperty Name="ID_Estado" ColumnName="ID_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Generos">
+            <EntityTypeMapping TypeName="tccModel.Generos">
+              <MappingFragment StoreEntitySet="Generos">
+                <ScalarProperty Name="ID_Genero" ColumnName="ID_Genero" />
+                <ScalarProperty Name="Tipo_Genero" ColumnName="Tipo_Genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inseminacoes">
+            <EntityTypeMapping TypeName="tccModel.Inseminacoes">
+              <MappingFragment StoreEntitySet="Inseminacoes">
+                <ScalarProperty Name="ID_Inseminacao" ColumnName="ID_Inseminacao" />
+                <ScalarProperty Name="ID_Animal" ColumnName="ID_Animal" />
+                <ScalarProperty Name="Data_Inseminacao" ColumnName="Data_Inseminacao" />
+                <ScalarProperty Name="Metodo_Inseminacao" ColumnName="Metodo_Inseminacao" />
+                <ScalarProperty Name="ID_Inseminador" ColumnName="ID_Inseminador" />
+                <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inseminadores">
+            <EntityTypeMapping TypeName="tccModel.Inseminadores">
+              <MappingFragment StoreEntitySet="Inseminadores">
+                <ScalarProperty Name="ID_Inseminador" ColumnName="ID_Inseminador" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Especializacao" ColumnName="Especializacao" />
+                <ScalarProperty Name="Certificacoes" ColumnName="Certificacoes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proprietarios">
+            <EntityTypeMapping TypeName="tccModel.Proprietarios">
+              <MappingFragment StoreEntitySet="Proprietarios">
+                <ScalarProperty Name="ID_Proprietario" ColumnName="ID_Proprietario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID_Fazenda" ColumnName="ID_Fazenda" />
+                <ScalarProperty Name="Numero_Contato" ColumnName="Numero_Contato" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racas">
+            <EntityTypeMapping TypeName="tccModel.Racas">
+              <MappingFragment StoreEntitySet="Racas">
+                <ScalarProperty Name="ID_Raca" ColumnName="ID_Raca" />
+                <ScalarProperty Name="Nome_Raca" ColumnName="Nome_Raca" />
+                <ScalarProperty Name="Descricao_Raca" ColumnName="Descricao_Raca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semens">
+            <EntityTypeMapping TypeName="tccModel.Semens">
+              <MappingFragment StoreEntitySet="Semens">
+                <ScalarProperty Name="ID_Semen" ColumnName="ID_Semen" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Data_Validade" ColumnName="Data_Validade" />
+                <ScalarProperty Name="ID_Proprietario" ColumnName="ID_Proprietario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="tccModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

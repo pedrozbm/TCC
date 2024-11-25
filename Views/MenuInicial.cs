@@ -19,7 +19,9 @@ namespace TCC
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-
+            this.panelContanedor.GetType()
+                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(this.panelContanedor, true, null);
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleasedCapture();
@@ -32,17 +34,17 @@ namespace TCC
         {
 
         }
-        private void abrirFormNoPainel(Object formhijo)
+        public void abrirFormNoPainel(Object formhijo)
         {
-            if(this.panelContanedor.Controls.Count > 0)
+            if (this.panelContanedor.Controls.Count > 0)
                 this.panelContanedor.Controls.RemoveAt(0);
+
             Form fh = formhijo as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
             this.panelContanedor.Controls.Add(fh);
             this.panelContanedor.Tag = fh;
             fh.Show();
-                       
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

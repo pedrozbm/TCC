@@ -150,6 +150,78 @@
   <data name="&gt;&gt;btnAnimais.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;btnConfiguracoes.Name" xml:space="preserve">
+    <value>btnConfiguracoes</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguracoes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguracoes.Parent" xml:space="preserve">
+    <value>menuVertical</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguracoes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnSêmens.Name" xml:space="preserve">
+    <value>btnSêmens</value>
+  </data>
+  <data name="&gt;&gt;btnSêmens.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSêmens.Parent" xml:space="preserve">
+    <value>menuVertical</value>
+  </data>
+  <data name="&gt;&gt;btnSêmens.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnProtocolos.Name" xml:space="preserve">
+    <value>btnProtocolos</value>
+  </data>
+  <data name="&gt;&gt;btnProtocolos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnProtocolos.Parent" xml:space="preserve">
+    <value>menuVertical</value>
+  </data>
+  <data name="&gt;&gt;btnProtocolos.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnFazendas.Name" xml:space="preserve">
+    <value>btnFazendas</value>
+  </data>
+  <data name="&gt;&gt;btnFazendas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnFazendas.Parent" xml:space="preserve">
+    <value>menuVertical</value>
+  </data>
+  <data name="&gt;&gt;btnFazendas.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="menuVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="menuVertical.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuVertical.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 468</value>
+  </data>
+  <data name="menuVertical.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;menuVertical.Name" xml:space="preserve">
+    <value>menuVertical</value>
+  </data>
+  <data name="&gt;&gt;menuVertical.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuVertical.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuVertical.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btnConfiguracoes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -285,34 +357,10 @@
   <data name="&gt;&gt;btnFazendas.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="menuVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="menuVertical.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuVertical.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 468</value>
-  </data>
-  <data name="menuVertical.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;menuVertical.Name" xml:space="preserve">
-    <value>menuVertical</value>
-  </data>
-  <data name="&gt;&gt;menuVertical.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuVertical.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuVertical.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnSlide.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        DgAACw4BQL7hQQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>
@@ -320,7 +368,7 @@
   <data name="btnSlide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
+        DgAACw4BQL7hQQAAAF5JREFUaEPt1jEKACEQxdA5+t7cxT61EsmDNL8fdJIkt3yPNOuRcDSGozEcjeHh
         GEuSJBu9ksbw32IMR2M4GsPRGB6OsSRJstEraQz/LcZwNIajMRyN4eEYS5KcNvMDzjzrxwl+8ysAAAAA
         SUVORK5CYII=
 </value>

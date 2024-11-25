@@ -132,9 +132,10 @@
             // 
             // menuSuperior
             // 
-            this.menuSuperior.BackColor = System.Drawing.Color.LightYellow;
+            this.menuSuperior.BackColor = System.Drawing.Color.Transparent;
             this.menuSuperior.Controls.Add(this.btnSlide);
             resources.ApplyResources(this.menuSuperior, "menuSuperior");
+            this.menuSuperior.ForeColor = System.Drawing.Color.Transparent;
             this.menuSuperior.Name = "menuSuperior";
             this.menuSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.menuSuperior_Paint);
             // 
@@ -146,7 +147,9 @@
             // 
             // panelContanedor
             // 
+            this.panelContanedor.BackColor = System.Drawing.Color.Teal;
             resources.ApplyResources(this.panelContanedor, "panelContanedor");
+            this.panelContanedor.ForeColor = System.Drawing.Color.Transparent;
             this.panelContanedor.Name = "panelContanedor";
             this.panelContanedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContanedor_Paint);
             // 
