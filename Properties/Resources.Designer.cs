@@ -59,5 +59,15 @@ namespace TCC.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BRASILEIRO {
+            get {
+                object obj = ResourceManager.GetObject("BRASILEIRO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

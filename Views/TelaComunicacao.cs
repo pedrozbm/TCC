@@ -1,124 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TCC
 {
     public partial class TelaComunicacao : Form
     {
-        string RxString;
+        private SerialPort serialPort;
+
         public TelaComunicacao()
         {
+            serialPort = new SerialPort();
+            serialPort.PortName = "COM7"; // Ajuste para a porta onde o ESP32 está conectado
+            serialPort.BaudRate = 9600;
+            serialPort.DataReceived += SerialPort_DataReceived;
+            serialPort.Open();
             InitializeComponent();
-            timerCOM.Enabled = true;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
+            try
             {
-                try
-                {
-                    serialPort1.PortName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
-                    serialPort1.Open();
-                }
-                catch
-                {
+                // Lê os dados recebidos da porta serial
+                string data = serialPort.ReadLine(); // Certifique-se que o ESP32 envia um '\n'
 
-                    return;
-                }
-                if (serialPort1.IsOpen)
-                {
-                    btConectar.Text = "Desconectar";
-                    comboBox1.Enabled = false;
-                }
+                // Atualiza o TextBox na thread principal
+                Invoke(new Action(() => {
+                    textBox1.Text = data; // Atualiza o conteúdo do TextBox
+                }));
             }
-            else
+            catch (Exception ex)
             {
-
-                try
-                {
-                    serialPort1.Close();
-                    comboBox1.Enabled = true;
-                    btConectar.Text = "Conectar";
-                }
-                catch { return; }
+                MessageBox.Show($"Erro ao receber dados: {ex.Message}");
             }
         }
-        private void atualizalistaCOMs()
+
+        private void btnEnviar_Click_1(object sender, EventArgs e)
         {
-            int i;
-            bool quantDiferente = false;
-            i = 0;
+       
+            string datatx = sendDataTextBox.Text;
 
-            if (comboBox1.Items.Count == SerialPort.GetPortNames().Length)
+            serialPort.Write(datatx);
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            try
             {
-                foreach (string s in SerialPort.GetPortNames())
+                if (!serialPort.IsOpen)
                 {
-                    if (comboBox1.Items[i++].Equals(s) == false)
-                    {
-
-                        quantDiferente = true;
-                    }
+                    serialPort.PortName = "COM7";
+                    serialPort.Open();
+                    MessageBox.Show("Conectado ao ESP32!");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                quantDiferente = true;
-            }
-
-            if (quantDiferente == false)
-            {
-                return;
-            }
-            comboBox1.Items.Clear();
-
-            foreach (string s in SerialPort.GetPortNames())
-            {
-                comboBox1.Items.Add(s);
-            }
-            comboBox1.SelectedItem = 0;
-        }
-
-        private void timerCOM_Tick(object sender, EventArgs e)
-        {
-            atualizalistaCOMs();
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if(serialPort1.IsOpen == true)
-                serialPort1.Close();
-        }
-
-        private void btEnviar_Click(object sender, EventArgs e)
-        {
-            if(serialPort1.IsOpen == true )
-            {
-                serialPort1.Write(textBoxEnviar.Text);
+                MessageBox.Show("Erro ao conectar: " + ex.Message);
             }
         }
 
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void receivedDataTextBox_TextChanged(object sender, EventArgs e)
         {
-            RxString = serialPort1.ReadExisting();
-            this.Invoke(new EventHandler(trataDadoRecebido));
-        }
-        private void trataDadoRecebido(object sender, EventArgs e)
-        {
-            textBoxReceber.AppendText(RxString);
+
         }
     }
 }

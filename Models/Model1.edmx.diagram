@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="tccModel.Fazendas" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="tccModel.Generos" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="tccModel.Inseminacoes" Width="1.5" PointX="12" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="tccModel.Inseminadores" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="tccModel.Proprietarios" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="tccModel.Racas" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="tccModel.Semens" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
@@ -28,8 +27,9 @@
         <AssociationConnector Association="tccModel.FK_DiagnostiID_In_5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="tccModel.FK_DiagnostiID_In_59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="tccModel.FK_FazendasID_Est_4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="tccModel.FK_ProprietaID_Fa_4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="tccModel.FK_InseminacID_In_571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="tccModel.FK_Fazendas_Proprietarios" />
+        <AssociationConnector Association="tccModel.FK_Semens_Proprietarios" />
+        <AssociationConnector Association="tccModel.FK_Inseminacoes_Semens" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

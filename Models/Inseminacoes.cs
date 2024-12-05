@@ -25,14 +25,14 @@ namespace TCC.Models
         public Nullable<int> ID_Animal { get; set; }
         public Nullable<System.DateTime> Data_Inseminacao { get; set; }
         public string Metodo_Inseminacao { get; set; }
-        public Nullable<int> ID_Inseminador { get; set; }
         public string Observacoes { get; set; }
+        public int ID_Semen { get; set; }
     
         public virtual Animais Animais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diagnostico_Pos> Diagnostico_Pos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diagnostico_Pre> Diagnostico_Pre { get; set; }
-        public virtual Inseminadores Inseminadores { get; set; }
+        public virtual Semens Semens { get; set; }
     }
 }

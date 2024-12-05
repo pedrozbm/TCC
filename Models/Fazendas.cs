@@ -18,7 +18,6 @@ namespace TCC.Models
         public Fazendas()
         {
             this.Animais = new HashSet<Animais>();
-            this.Proprietarios = new HashSet<Proprietarios>();
         }
     
         public int ID_Fazenda { get; set; }
@@ -26,12 +25,12 @@ namespace TCC.Models
         public string Endereco { get; set; }
         public Nullable<int> ID_Cidade { get; set; }
         public Nullable<int> ID_Estado { get; set; }
+        public Nullable<int> ID_Proprietario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Animais> Animais { get; set; }
         public virtual Cidades Cidades { get; set; }
         public virtual Estados Estados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proprietarios> Proprietarios { get; set; }
+        public virtual Proprietarios Proprietarios { get; set; }
     }
 }

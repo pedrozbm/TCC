@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuInicial));
             this.btnAnimais = new System.Windows.Forms.Button();
             this.menuVertical = new System.Windows.Forms.Panel();
+            this.btnProprietários = new System.Windows.Forms.Button();
             this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.btnSêmens = new System.Windows.Forms.Button();
             this.btnProtocolos = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.Green;
+            this.menuVertical.Controls.Add(this.btnProprietários);
             this.menuVertical.Controls.Add(this.btnConfiguracoes);
             this.menuVertical.Controls.Add(this.btnSêmens);
             this.menuVertical.Controls.Add(this.btnProtocolos);
@@ -70,6 +72,21 @@
             resources.ApplyResources(this.menuVertical, "menuVertical");
             this.menuVertical.Name = "menuVertical";
             this.menuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnProprietários
+            // 
+            this.btnProprietários.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            resources.ApplyResources(this.btnProprietários, "btnProprietários");
+            this.btnProprietários.BackColor = System.Drawing.Color.Transparent;
+            this.btnProprietários.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProprietários.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnProprietários.FlatAppearance.BorderSize = 0;
+            this.btnProprietários.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Ivory;
+            this.btnProprietários.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnProprietários.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnProprietários.Name = "btnProprietários";
+            this.btnProprietários.UseVisualStyleBackColor = false;
+            this.btnProprietários.Click += new System.EventHandler(this.btnProprietários_Click);
             // 
             // btnConfiguracoes
             // 
@@ -114,6 +131,7 @@
             this.btnProtocolos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnProtocolos.Name = "btnProtocolos";
             this.btnProtocolos.UseVisualStyleBackColor = false;
+            this.btnProtocolos.Click += new System.EventHandler(this.btnProtocolos_Click);
             // 
             // btnFazendas
             // 
@@ -185,5 +203,6 @@
         private System.Windows.Forms.Button btnProtocolos;
         private System.Windows.Forms.Panel panelContanedor;
         private System.Windows.Forms.Button btnFazendas;
+        private System.Windows.Forms.Button btnProprietários;
     }
 }

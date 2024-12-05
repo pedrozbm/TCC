@@ -30,84 +30,55 @@ namespace TCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.btConectar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btEnviar = new System.Windows.Forms.Button();
-            this.textBoxEnviar = new System.Windows.Forms.TextBox();
-            this.textBoxReceber = new System.Windows.Forms.TextBox();
-            this.timerCOM = new System.Windows.Forms.Timer(this.components);
+            this.btnConectar = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
+            this.sendDataTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btConectar
+            // btnConectar
             // 
-            this.btConectar.Location = new System.Drawing.Point(92, 33);
-            this.btConectar.Margin = new System.Windows.Forms.Padding(4);
-            this.btConectar.Name = "btConectar";
-            this.btConectar.Size = new System.Drawing.Size(100, 28);
-            this.btConectar.TabIndex = 0;
-            this.btConectar.Text = "Conectar";
-            this.btConectar.UseVisualStyleBackColor = true;
-            this.btConectar.Click += new System.EventHandler(this.button1_Click);
+            this.btnConectar.Location = new System.Drawing.Point(37, 103);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(81, 41);
+            this.btnConectar.TabIndex = 0;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.UseVisualStyleBackColor = true;
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
-            // comboBox1
+            // btnEnviar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(220, 37);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 1;
+            this.btnEnviar.Location = new System.Drawing.Point(287, 103);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 41);
+            this.btnEnviar.TabIndex = 1;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click_1);
             // 
-            // btEnviar
+            // sendDataTextBox
             // 
-            this.btEnviar.Location = new System.Drawing.Point(92, 92);
-            this.btEnviar.Margin = new System.Windows.Forms.Padding(4);
-            this.btEnviar.Name = "btEnviar";
-            this.btEnviar.Size = new System.Drawing.Size(100, 28);
-            this.btEnviar.TabIndex = 2;
-            this.btEnviar.Text = "Enviar";
-            this.btEnviar.UseVisualStyleBackColor = true;
-            this.btEnviar.Click += new System.EventHandler(this.btEnviar_Click);
+            this.sendDataTextBox.Location = new System.Drawing.Point(124, 122);
+            this.sendDataTextBox.Name = "sendDataTextBox";
+            this.sendDataTextBox.Size = new System.Drawing.Size(147, 22);
+            this.sendDataTextBox.TabIndex = 2;
             // 
-            // textBoxEnviar
+            // textBox1
             // 
-            this.textBoxEnviar.Location = new System.Drawing.Point(220, 98);
-            this.textBoxEnviar.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxEnviar.Name = "textBoxEnviar";
-            this.textBoxEnviar.Size = new System.Drawing.Size(345, 22);
-            this.textBoxEnviar.TabIndex = 3;
-            // 
-            // textBoxReceber
-            // 
-            this.textBoxReceber.Location = new System.Drawing.Point(92, 152);
-            this.textBoxReceber.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxReceber.Multiline = true;
-            this.textBoxReceber.Name = "textBoxReceber";
-            this.textBoxReceber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxReceber.Size = new System.Drawing.Size(478, 174);
-            this.textBoxReceber.TabIndex = 4;
-            // 
-            // timerCOM
-            // 
-            this.timerCOM.Interval = 1000;
-            this.timerCOM.Tick += new System.EventHandler(this.timerCOM_Tick);
+            this.textBox1.Location = new System.Drawing.Point(124, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 22);
+            this.textBox1.TabIndex = 4;
             // 
             // TelaComunicacao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 365);
-            this.Controls.Add(this.textBoxReceber);
-            this.Controls.Add(this.textBoxEnviar);
-            this.Controls.Add(this.btEnviar);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.btConectar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.ClientSize = new System.Drawing.Size(566, 253);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.sendDataTextBox);
+            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.btnConectar);
             this.Name = "TelaComunicacao";
-            this.Text = "Teste de comunicação ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,12 +87,13 @@ namespace TCC
         #endregion
 
         private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.Button btConectar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btEnviar;
-        private System.Windows.Forms.TextBox textBoxEnviar;
-        private System.Windows.Forms.TextBox textBoxReceber;
         private System.Windows.Forms.Timer timerCOM;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConectar;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.IO.Ports.SerialPort serialPort2;
+        private System.Windows.Forms.TextBox sendDataTextBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

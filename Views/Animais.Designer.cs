@@ -31,13 +31,14 @@
             this.btnConsultaAnimais = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConsultaAnimais
             // 
             this.btnConsultaAnimais.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultaAnimais.Location = new System.Drawing.Point(662, 12);
+            this.btnConsultaAnimais.Location = new System.Drawing.Point(12, 328);
             this.btnConsultaAnimais.Name = "btnConsultaAnimais";
             this.btnConsultaAnimais.Size = new System.Drawing.Size(89, 43);
             this.btnConsultaAnimais.TabIndex = 0;
@@ -47,18 +48,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 125);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 275);
+            this.dataGridView1.Size = new System.Drawing.Size(758, 310);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(662, 77);
+            this.btnAdicionar.Location = new System.Drawing.Point(107, 328);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(89, 42);
             this.btnAdicionar.TabIndex = 2;
@@ -66,12 +69,23 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(202, 328);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(103, 42);
+            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Animais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(782, 412);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnConsultaAnimais);
@@ -90,5 +104,6 @@
         private System.Windows.Forms.Button btnConsultaAnimais;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

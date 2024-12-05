@@ -18,16 +18,20 @@ namespace TCC.Models
         public Proprietarios()
         {
             this.Animais = new HashSet<Animais>();
+            this.Fazendas = new HashSet<Fazendas>();
+            this.Semens = new HashSet<Semens>();
         }
     
         public int ID_Proprietario { get; set; }
         public string Nome { get; set; }
-        public Nullable<int> ID_Fazenda { get; set; }
         public string Numero_Contato { get; set; }
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Animais> Animais { get; set; }
-        public virtual Fazendas Fazendas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Fazendas> Fazendas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Semens> Semens { get; set; }
     }
 }

@@ -14,10 +14,20 @@ namespace TCC.Models
     
     public partial class Semens
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Semens()
+        {
+            this.Inseminacoes = new HashSet<Inseminacoes>();
+        }
+    
         public int ID_Semen { get; set; }
         public string Nome { get; set; }
         public Nullable<int> Quantidade { get; set; }
         public Nullable<System.DateTime> Data_Validade { get; set; }
         public Nullable<int> ID_Proprietario { get; set; }
+    
+        public virtual Proprietarios Proprietarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Inseminacoes> Inseminacoes { get; set; }
     }
 }

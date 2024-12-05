@@ -33,7 +33,6 @@ namespace TCC.Models
         public virtual DbSet<Fazendas> Fazendas { get; set; }
         public virtual DbSet<Generos> Generos { get; set; }
         public virtual DbSet<Inseminacoes> Inseminacoes { get; set; }
-        public virtual DbSet<Inseminadores> Inseminadores { get; set; }
         public virtual DbSet<Proprietarios> Proprietarios { get; set; }
         public virtual DbSet<Racas> Racas { get; set; }
         public virtual DbSet<Semens> Semens { get; set; }

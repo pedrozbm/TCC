@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="tccModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="tccModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Animais">
           <Key>
             <PropertyRef Name="ID_Animal" />
@@ -64,6 +64,7 @@
           <Property Name="Endereco" Type="varchar" MaxLength="255" />
           <Property Name="ID_Cidade" Type="int" />
           <Property Name="ID_Estado" Type="int" />
+          <Property Name="ID_Proprietario" Type="int" />
         </EntityType>
         <EntityType Name="Generos">
           <Key>
@@ -80,17 +81,8 @@
           <Property Name="ID_Animal" Type="int" />
           <Property Name="Data_Inseminacao" Type="date" />
           <Property Name="Metodo_Inseminacao" Type="varchar" MaxLength="100" />
-          <Property Name="ID_Inseminador" Type="int" />
           <Property Name="Observacoes" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="Inseminadores">
-          <Key>
-            <PropertyRef Name="ID_Inseminador" />
-          </Key>
-          <Property Name="ID_Inseminador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="varchar" MaxLength="100" />
-          <Property Name="Especializacao" Type="varchar" MaxLength="100" />
-          <Property Name="Certificacoes" Type="varchar" MaxLength="255" />
+          <Property Name="ID_Semen" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Proprietarios">
           <Key>
@@ -214,6 +206,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Fazendas_Proprietarios">
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="0..1" />
+          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Proprietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FazendasID_Cid_4AB81AF0">
           <End Role="Cidades" Type="Self.Cidades" Multiplicity="0..1" />
           <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="*" />
@@ -250,27 +254,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_InseminacID_In_571DF1D5">
-          <End Role="Inseminadores" Type="Self.Inseminadores" Multiplicity="0..1" />
+        <Association Name="FK_Inseminacoes_Semens">
+          <End Role="Semens" Type="Self.Semens" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Inseminadores">
-              <PropertyRef Name="ID_Inseminador" />
+            <Principal Role="Semens">
+              <PropertyRef Name="ID_Semen" />
             </Principal>
             <Dependent Role="Inseminacoes">
-              <PropertyRef Name="ID_Inseminador" />
+              <PropertyRef Name="ID_Semen" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProprietaID_Fa_4E88ABD4">
-          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
-          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="*" />
+        <Association Name="FK_Semens_Proprietarios">
+          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="0..1" />
+          <End Role="Semens" Type="Self.Semens" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Fazendas">
-              <PropertyRef Name="ID_Fazenda" />
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
             </Principal>
-            <Dependent Role="Proprietarios">
-              <PropertyRef Name="ID_Fazenda" />
+            <Dependent Role="Semens">
+              <PropertyRef Name="ID_Proprietario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -283,7 +289,6 @@
           <EntitySet Name="Fazendas" EntityType="Self.Fazendas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inseminacoes" EntityType="Self.Inseminacoes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Inseminadores" EntityType="Self.Inseminadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Racas" EntityType="Self.Racas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Semens" EntityType="Self.Semens" Schema="dbo" store:Type="Tables" />
@@ -316,6 +321,10 @@
             <End Role="Inseminacoes" EntitySet="Inseminacoes" />
             <End Role="Diagnostico_Pos" EntitySet="Diagnostico_Pos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Fazendas_Proprietarios" Association="Self.FK_Fazendas_Proprietarios">
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
+          </AssociationSet>
           <AssociationSet Name="FK_FazendasID_Cid_4AB81AF0" Association="Self.FK_FazendasID_Cid_4AB81AF0">
             <End Role="Cidades" EntitySet="Cidades" />
             <End Role="Fazendas" EntitySet="Fazendas" />
@@ -328,17 +337,16 @@
             <End Role="Animais" EntitySet="Animais" />
             <End Role="Inseminacoes" EntitySet="Inseminacoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_InseminacID_In_571DF1D5" Association="Self.FK_InseminacID_In_571DF1D5">
-            <End Role="Inseminadores" EntitySet="Inseminadores" />
+          <AssociationSet Name="FK_Inseminacoes_Semens" Association="Self.FK_Inseminacoes_Semens">
+            <End Role="Semens" EntitySet="Semens" />
             <End Role="Inseminacoes" EntitySet="Inseminacoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProprietaID_Fa_4E88ABD4" Association="Self.FK_ProprietaID_Fa_4E88ABD4">
-            <End Role="Fazendas" EntitySet="Fazendas" />
+          <AssociationSet Name="FK_Semens_Proprietarios" Association="Self.FK_Semens_Proprietarios">
             <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Semens" EntitySet="Semens" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -415,7 +423,8 @@
           <NavigationProperty Name="Animais" Relationship="Self.FK_Animais_Fazendas" FromRole="Fazendas" ToRole="Animais" />
           <NavigationProperty Name="Cidades" Relationship="Self.FK_FazendasID_Cid_4AB81AF0" FromRole="Fazendas" ToRole="Cidades" />
           <NavigationProperty Name="Estados" Relationship="Self.FK_FazendasID_Est_4BAC3F29" FromRole="Fazendas" ToRole="Estados" />
-          <NavigationProperty Name="Proprietarios" Relationship="Self.FK_ProprietaID_Fa_4E88ABD4" FromRole="Fazendas" ToRole="Proprietarios" />
+          <Property Name="ID_Proprietario" Type="Int32" />
+          <NavigationProperty Name="Proprietarios" Relationship="tccModel.FK_Fazendas_Proprietarios" FromRole="Fazendas" ToRole="Proprietarios" />
         </EntityType>
         <EntityType Name="Generos">
           <Key>
@@ -433,22 +442,12 @@
           <Property Name="ID_Animal" Type="Int32" />
           <Property Name="Data_Inseminacao" Type="DateTime" Precision="0" />
           <Property Name="Metodo_Inseminacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Inseminador" Type="Int32" />
           <Property Name="Observacoes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Animais" Relationship="Self.FK_InseminacID_An_5629CD9C" FromRole="Inseminacoes" ToRole="Animais" />
           <NavigationProperty Name="Diagnostico_Pos" Relationship="Self.FK_DiagnostiID_In_5CD6CB2B" FromRole="Inseminacoes" ToRole="Diagnostico_Pos" />
           <NavigationProperty Name="Diagnostico_Pre" Relationship="Self.FK_DiagnostiID_In_59FA5E80" FromRole="Inseminacoes" ToRole="Diagnostico_Pre" />
-          <NavigationProperty Name="Inseminadores" Relationship="Self.FK_InseminacID_In_571DF1D5" FromRole="Inseminacoes" ToRole="Inseminadores" />
-        </EntityType>
-        <EntityType Name="Inseminadores">
-          <Key>
-            <PropertyRef Name="ID_Inseminador" />
-          </Key>
-          <Property Name="ID_Inseminador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Especializacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Certificacoes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Inseminacoes" Relationship="Self.FK_InseminacID_In_571DF1D5" FromRole="Inseminadores" ToRole="Inseminacoes" />
+          <Property Name="ID_Semen" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Semens" Relationship="tccModel.FK_Inseminacoes_Semens" FromRole="Inseminacoes" ToRole="Semens" />
         </EntityType>
         <EntityType Name="Proprietarios">
           <Key>
@@ -456,11 +455,11 @@
           </Key>
           <Property Name="ID_Proprietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Fazenda" Type="Int32" />
           <Property Name="Numero_Contato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Animais" Relationship="Self.FK_AnimaisID_Prop_534D60F1" FromRole="Proprietarios" ToRole="Animais" />
-          <NavigationProperty Name="Fazendas" Relationship="Self.FK_ProprietaID_Fa_4E88ABD4" FromRole="Proprietarios" ToRole="Fazendas" />
+          <NavigationProperty Name="Fazendas" Relationship="tccModel.FK_Fazendas_Proprietarios" FromRole="Proprietarios" ToRole="Fazendas" />
+          <NavigationProperty Name="Semens" Relationship="tccModel.FK_Semens_Proprietarios" FromRole="Proprietarios" ToRole="Semens" />
         </EntityType>
         <EntityType Name="Racas">
           <Key>
@@ -480,6 +479,8 @@
           <Property Name="Quantidade" Type="Int32" />
           <Property Name="Data_Validade" Type="DateTime" Precision="0" />
           <Property Name="ID_Proprietario" Type="Int32" />
+          <NavigationProperty Name="Proprietarios" Relationship="tccModel.FK_Semens_Proprietarios" FromRole="Semens" ToRole="Proprietarios" />
+          <NavigationProperty Name="Inseminacoes" Relationship="tccModel.FK_Inseminacoes_Semens" FromRole="Semens" ToRole="Inseminacoes" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -611,30 +612,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProprietaID_Fa_4E88ABD4">
-          <End Role="Fazendas" Type="Self.Fazendas" Multiplicity="0..1" />
-          <End Role="Proprietarios" Type="Self.Proprietarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fazendas">
-              <PropertyRef Name="ID_Fazenda" />
-            </Principal>
-            <Dependent Role="Proprietarios">
-              <PropertyRef Name="ID_Fazenda" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InseminacID_In_571DF1D5">
-          <End Role="Inseminadores" Type="Self.Inseminadores" Multiplicity="0..1" />
-          <End Role="Inseminacoes" Type="Self.Inseminacoes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Inseminadores">
-              <PropertyRef Name="ID_Inseminador" />
-            </Principal>
-            <Dependent Role="Inseminacoes">
-              <PropertyRef Name="ID_Inseminador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="tccEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Animais" EntityType="Self.Animais" />
           <EntitySet Name="Cidades" EntityType="Self.Cidades" />
@@ -644,7 +621,6 @@
           <EntitySet Name="Fazendas" EntityType="Self.Fazendas" />
           <EntitySet Name="Generos" EntityType="Self.Generos" />
           <EntitySet Name="Inseminacoes" EntityType="Self.Inseminacoes" />
-          <EntitySet Name="Inseminadores" EntityType="Self.Inseminadores" />
           <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" />
           <EntitySet Name="Racas" EntityType="Self.Racas" />
           <EntitySet Name="Semens" EntityType="Self.Semens" />
@@ -689,15 +665,57 @@
             <End Role="Estados" EntitySet="Estados" />
             <End Role="Fazendas" EntitySet="Fazendas" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProprietaID_Fa_4E88ABD4" Association="Self.FK_ProprietaID_Fa_4E88ABD4">
-            <End Role="Fazendas" EntitySet="Fazendas" />
+          <AssociationSet Name="FK_Fazendas_Proprietarios" Association="tccModel.FK_Fazendas_Proprietarios">
             <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Fazendas" EntitySet="Fazendas" />
           </AssociationSet>
-          <AssociationSet Name="FK_InseminacID_In_571DF1D5" Association="Self.FK_InseminacID_In_571DF1D5">
-            <End Role="Inseminadores" EntitySet="Inseminadores" />
+          <AssociationSet Name="FK_Semens_Proprietarios" Association="tccModel.FK_Semens_Proprietarios">
+            <End Role="Proprietarios" EntitySet="Proprietarios" />
+            <End Role="Semens" EntitySet="Semens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inseminacoes_Semens" Association="tccModel.FK_Inseminacoes_Semens">
+            <End Role="Semens" EntitySet="Semens" />
             <End Role="Inseminacoes" EntitySet="Inseminacoes" />
           </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Fazendas_Proprietarios">
+          <End Type="tccModel.Proprietarios" Role="Proprietarios" Multiplicity="0..1" />
+          <End Type="tccModel.Fazendas" Role="Fazendas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
+            </Principal>
+            <Dependent Role="Fazendas">
+              <PropertyRef Name="ID_Proprietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Semens_Proprietarios">
+          <End Type="tccModel.Proprietarios" Role="Proprietarios" Multiplicity="0..1" />
+          <End Type="tccModel.Semens" Role="Semens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proprietarios">
+              <PropertyRef Name="ID_Proprietario" />
+            </Principal>
+            <Dependent Role="Semens">
+              <PropertyRef Name="ID_Proprietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inseminacoes_Semens">
+          <End Type="tccModel.Semens" Role="Semens" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="tccModel.Inseminacoes" Role="Inseminacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semens">
+              <PropertyRef Name="ID_Semen" />
+            </Principal>
+            <Dependent Role="Inseminacoes">
+              <PropertyRef Name="ID_Semen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -762,6 +780,7 @@
           <EntitySetMapping Name="Fazendas">
             <EntityTypeMapping TypeName="tccModel.Fazendas">
               <MappingFragment StoreEntitySet="Fazendas">
+                <ScalarProperty Name="ID_Proprietario" ColumnName="ID_Proprietario" />
                 <ScalarProperty Name="ID_Fazenda" ColumnName="ID_Fazenda" />
                 <ScalarProperty Name="Nome_Fazenda" ColumnName="Nome_Fazenda" />
                 <ScalarProperty Name="Endereco" ColumnName="Endereco" />
@@ -781,22 +800,12 @@
           <EntitySetMapping Name="Inseminacoes">
             <EntityTypeMapping TypeName="tccModel.Inseminacoes">
               <MappingFragment StoreEntitySet="Inseminacoes">
+                <ScalarProperty Name="ID_Semen" ColumnName="ID_Semen" />
                 <ScalarProperty Name="ID_Inseminacao" ColumnName="ID_Inseminacao" />
                 <ScalarProperty Name="ID_Animal" ColumnName="ID_Animal" />
                 <ScalarProperty Name="Data_Inseminacao" ColumnName="Data_Inseminacao" />
                 <ScalarProperty Name="Metodo_Inseminacao" ColumnName="Metodo_Inseminacao" />
-                <ScalarProperty Name="ID_Inseminador" ColumnName="ID_Inseminador" />
                 <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Inseminadores">
-            <EntityTypeMapping TypeName="tccModel.Inseminadores">
-              <MappingFragment StoreEntitySet="Inseminadores">
-                <ScalarProperty Name="ID_Inseminador" ColumnName="ID_Inseminador" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="Especializacao" ColumnName="Especializacao" />
-                <ScalarProperty Name="Certificacoes" ColumnName="Certificacoes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -805,7 +814,6 @@
               <MappingFragment StoreEntitySet="Proprietarios">
                 <ScalarProperty Name="ID_Proprietario" ColumnName="ID_Proprietario" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="ID_Fazenda" ColumnName="ID_Fazenda" />
                 <ScalarProperty Name="Numero_Contato" ColumnName="Numero_Contato" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>

@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
@@ -64,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BluetoothHandler.cs" />
     <Compile Include="Models\Animais.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -86,9 +90,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Inseminacoes.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Inseminadores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -136,6 +137,18 @@
     <Compile Include="Views\Fazendas.Designer.cs">
       <DependentUpon>Fazendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Protocolos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Protocolos.Designer.cs">
+      <DependentUpon>Protocolos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Proprietario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Proprietario.Designer.cs">
+      <DependentUpon>Proprietario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Semens.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,8 +180,14 @@
     <EmbeddedResource Include="Views\Fazendas.resx">
       <DependentUpon>Fazendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Protocolos.resx">
+      <DependentUpon>Protocolos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuInicial.resx">
       <DependentUpon>MenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Proprietario.resx">
+      <DependentUpon>Proprietario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Semens.resx">
       <DependentUpon>Semens.cs</DependentUpon>
@@ -190,13 +209,27 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="app.manifest" />
     <None Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TCC.Models.Animais.datasource" />
     <None Include="Properties\DataSources\TCC.Models.Cidades.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.DAOdb.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Diagnostico_Pos.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Diagnostico_Pre.datasource" />
     <None Include="Properties\DataSources\TCC.Models.Estados.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Fazendas.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Generos.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Inseminacoes.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Inseminadores.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Proprietarios.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Raca.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Racas.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.Semens.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.sysdiagrams.datasource" />
+    <None Include="Properties\DataSources\TCC.Models.tccEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -221,6 +254,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\BRASILEIRO.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
