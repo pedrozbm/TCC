@@ -107,7 +107,7 @@
             // btnAdicionar
             // 
             this.btnAdicionar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdicionar.Location = new System.Drawing.Point(678, 115);
+            this.btnAdicionar.Location = new System.Drawing.Point(678, 114);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(96, 30);
             this.btnAdicionar.TabIndex = 20;
@@ -248,9 +248,10 @@
             // 
             // btnAddBT
             // 
-            this.btnAddBT.Location = new System.Drawing.Point(526, 117);
+            this.btnAddBT.ForeColor = System.Drawing.Color.Black;
+            this.btnAddBT.Location = new System.Drawing.Point(509, 114);
             this.btnAddBT.Name = "btnAddBT";
-            this.btnAddBT.Size = new System.Drawing.Size(132, 27);
+            this.btnAddBT.Size = new System.Drawing.Size(149, 30);
             this.btnAddBT.TabIndex = 39;
             this.btnAddBT.Text = "Adiconar com Tag";
             this.btnAddBT.UseVisualStyleBackColor = true;

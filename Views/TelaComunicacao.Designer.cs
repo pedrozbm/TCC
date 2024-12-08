@@ -35,13 +35,15 @@ namespace TCC
             this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
             this.sendDataTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConectar
             // 
-            this.btnConectar.Location = new System.Drawing.Point(37, 103);
+            this.btnConectar.Location = new System.Drawing.Point(406, 53);
             this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(81, 41);
+            this.btnConectar.Size = new System.Drawing.Size(81, 25);
             this.btnConectar.TabIndex = 0;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = true;
@@ -49,9 +51,9 @@ namespace TCC
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(287, 103);
+            this.btnEnviar.Location = new System.Drawing.Point(406, 127);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(75, 41);
+            this.btnEnviar.Size = new System.Drawing.Size(70, 25);
             this.btnEnviar.TabIndex = 1;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
@@ -59,21 +61,43 @@ namespace TCC
             // 
             // sendDataTextBox
             // 
-            this.sendDataTextBox.Location = new System.Drawing.Point(124, 122);
+            this.sendDataTextBox.BackColor = System.Drawing.Color.White;
+            this.sendDataTextBox.Location = new System.Drawing.Point(232, 130);
             this.sendDataTextBox.Name = "sendDataTextBox";
-            this.sendDataTextBox.Size = new System.Drawing.Size(147, 22);
+            this.sendDataTextBox.Size = new System.Drawing.Size(168, 22);
             this.sendDataTextBox.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 56);
+            this.textBox1.Location = new System.Drawing.Point(232, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 22);
             this.textBox1.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(84, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Porta de comunicaçao";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(84, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(126, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Mensagem de teste";
+            // 
             // TelaComunicacao
             // 
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(566, 253);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.sendDataTextBox);
             this.Controls.Add(this.btnEnviar);
@@ -94,6 +118,8 @@ namespace TCC
         private System.IO.Ports.SerialPort serialPort2;
         private System.Windows.Forms.TextBox sendDataTextBox;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
